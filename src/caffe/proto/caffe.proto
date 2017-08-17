@@ -437,7 +437,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 147 (last added: recurrent_param)
+// LayerParameter next available layer-specific ID: 148 (last added: my_normalize)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -542,6 +542,13 @@ message LayerParameter {
   optional TileParameter tile_param = 138;
   optional VideoDataParameter video_data_param = 207;
   optional WindowDataParameter window_data_param = 129;
+  optional MyNormalizeParameter my_norm_param = 147;
+}
+
+message MyNormalizeParameter{
+  optional bool channel_shared = 1 [default = true];
+  optional FillerParameter scale_filler = 2 ;
+  optional float eps = 3 [default = 1e-10];
 }
 
 // Message that stores parameters used to apply transformation
